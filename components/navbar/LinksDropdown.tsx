@@ -16,7 +16,7 @@ import { SignedOut, SignedIn, SignInButton, SignUpButton } from '@clerk/nextjs';
 export default function LinksDropdown() {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
+      <DropdownMenuTrigger asChild className=' w-full gap-4'>
         <Button variant='outline' size='icon'>
           <LuAlignLeft />
           <UserIcon />

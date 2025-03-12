@@ -1,14 +1,13 @@
 import FormInput from '@/components/form/FormInput';
 import SubmitButton from '@/components/form/SubmitButton';
 import FormContainer from '@/components/form/FormContainer';
+import { createProfileAction } from '@/utils/actions';
+import { currentUser } from '@clerk/nextjs/server';
+import { redirect } from 'next/navigation';
 
-const createProfileAction = async (prevState: any, formdata: FormData) => {
-  'use server';
-  const firstName = formdata.get('firstName') as string;
-  return { message: `Profile created for ${firstName}` };
-};
-
-export default function CreateProfilePage() {
+export default async function CreateProfilePage() {
+  const user = await currentUser();
+  if (user?.privateMetadata?.hasProfile) redirect('/');
   return (
     <section>
       <h1 className='text-2xl font-semibold mb-8 capitalize'>New User</h1>
@@ -19,6 +18,7 @@ export default function CreateProfilePage() {
             <FormInput type='text' name='lastName' label='Last Name' />
             <FormInput type='text' name='username' label='Username' />
           </div>
+          <SubmitButton text='Create Profile' />
         </FormContainer>
       </div>
     </section>
