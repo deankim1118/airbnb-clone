@@ -6,10 +6,10 @@ import { Button } from '../ui/button';
 import { useState } from 'react';
 
 export default function CounterInput({
-  detail,
+  name,
   defaultValue,
 }: {
-  detail: string;
+  name: string;
   defaultValue?: number;
 }) {
   const [count, setCount] = useState(defaultValue || 0);
@@ -28,13 +28,13 @@ export default function CounterInput({
 
   return (
     <Card className='mb-4'>
-      <input type='hidden' name={detail} value={count} />
+      <input type='hidden' name={name} value={count} />
       <CardHeader className='flex flex-col gapy-5'>
         <div className='flex items-center justify-between flex-wrap'>
           <div className='flex flex-col'>
-            <h2 className='font-medium capitalize'>{detail}</h2>
+            <h2 className='font-medium capitalize'>{name}</h2>
             <p className='text-muted-foreground text-sm'>
-              Specify the number of {detail}
+              Specify the number of {name}
             </p>
           </div>
           <div className='flex items-center gap-4'>

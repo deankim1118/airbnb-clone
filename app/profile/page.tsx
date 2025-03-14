@@ -1,12 +1,9 @@
 import FormContainer from '@/components/form/FormContainer';
-import {
-  updateProfileAction,
-  fetchProfile,
-  updateProfileImageAction,
-} from '@/utils/actions';
+import { updateProfileAction, updateProfileImageAction } from './action';
 import FormInput from '@/components/form/FormInput';
 import SubmitButton from '@/components/form/SubmitButton';
 import ImageInputContainer from '@/components/form/ImageInputContainer';
+import { fetchProfile } from '@/utils/actions';
 
 export default async function ProfilePage() {
   const profile = await fetchProfile();

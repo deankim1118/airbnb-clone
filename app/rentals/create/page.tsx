@@ -1,7 +1,7 @@
 import FormContainer from '@/components/form/FormContainer';
 import FormInput from '@/components/form/FormInput';
 import SubmitButton from '@/components/form/SubmitButton';
-import { createPropertyAction } from '@/utils/actions';
+import { createPropertyAction } from '../action';
 import PriceInput from '@/components/form/PriceInput';
 import CategoriesInput from '@/components/form/CategoriesInpunt';
 import TextAreaInput from '@/components/form/TextAreaInput';
@@ -47,10 +47,10 @@ export default function page() {
           <h3 className='text-lg mt-8 mb-4 font-medium'>
             Accommodation Details
           </h3>
-          <CounterInput detail='guests' />
-          <CounterInput detail='bedrooms' />
-          <CounterInput detail='beds' />
-          <CounterInput detail='baths' />
+          <CounterInput name='guests' />
+          <CounterInput name='bedrooms' />
+          <CounterInput name='beds' />
+          <CounterInput name='baths' />
 
           <h3 className='text-lg mt-10 mb-6 font-medium'>Amenities</h3>
           <AmenitiesInput />
