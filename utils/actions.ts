@@ -47,3 +47,33 @@ export const renderError = (err: unknown): { message: string } => {
     message: err instanceof Error ? err.message : 'An error occurred',
   };
 };
+
+export const fetchProperties = async ({
+  category,
+  search = '',
+}: {
+  category?: string;
+  search?: string;
+}) => {
+  const properties = await db.property.findMany({
+    where: {
+      category,
+      OR: [
+        { name: { contains: search, mode: 'insensitive' } },
+        { tagline: { contains: search, mode: 'insensitive' } },
+      ],
+    },
+    select: {
+      image: true,
+      id: true,
+      name: true,
+      tagline: true,
+      country: true,
+      price: true,
+    },
+    orderBy: {
+      createdAt: 'desc',
+    },
+  });
+  return properties;
+};
