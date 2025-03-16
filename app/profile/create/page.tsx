@@ -1,5 +1,5 @@
 import FormInput from '@/components/form/FormInput';
-import SubmitButton from '@/components/form/SubmitButton';
+import SubmitButton from '@/components/form/Button';
 import FormContainer from '@/components/form/FormContainer';
 import { createProfileAction } from '../action';
 import { currentUser } from '@clerk/nextjs/server';

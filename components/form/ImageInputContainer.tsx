@@ -7,7 +7,7 @@ import { LuUser } from 'react-icons/lu';
 import { useState } from 'react';
 import FormContainer from './FormContainer';
 import ImageInput from './ImageInput';
-import SubmitButton from './SubmitButton';
+import SubmitButton from './Button';
 
 interface ImageContainerProps {
   image: string;
