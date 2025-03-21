@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import FormContainer from '../form/FormContainer';
-import { CardSubmitButton } from '../form/Button';
+import { FavoriteSubmitButton } from '../form/Button';
 import { toggleFavoriteAction } from './action';
 
 type FavoriteToggleFormProps = {
@@ -23,7 +23,7 @@ function FavoriteToggleForm({
 
   return (
     <FormContainer action={toggleAction}>
-      <CardSubmitButton isFavorite={favoriteId ? true : false} />
+      <FavoriteSubmitButton isFavorite={favoriteId ? true : false} />
     </FormContainer>
   );
 }
