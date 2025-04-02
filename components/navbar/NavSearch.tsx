@@ -7,7 +7,6 @@ import { useState, useEffect } from 'react';
 export default function NavSearch() {
   const searchParams = useSearchParams();
   const [search, setSearch] = useState(searchParams.get('search') || '');
-  const pathname = usePathname();
   const { replace } = useRouter();
 
   const handleSearch = useDebouncedCallback((value: string) => {
@@ -18,7 +17,7 @@ export default function NavSearch() {
       params.delete('search');
     }
 
-    replace(`${pathname}?${params.toString()}`);
+    replace(`/?${params.toString()}`);
   }, 500);
 
   useEffect(() => {
