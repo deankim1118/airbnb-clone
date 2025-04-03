@@ -2,6 +2,9 @@
 import { MapContainer, TileLayer, Marker, ZoomControl } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { icon } from 'leaflet';
+import dynamic from 'next/dynamic';
+import { Skeleton } from '../ui/skeleton';
+
 const iconUrl =
   'https://unpkg.com/leaflet@1.9.3/dist/images/marker-icon-2x.png';
 const markerIcon = icon({
@@ -24,6 +27,7 @@ export default function PropertyMap({ countryCode }: { countryCode: string }) {
         <CountryFlagAndName countryCode={countryCode} />
       </div>
       <MapContainer
+        key={countryCode}
         scrollWheelZoom={false}
         zoomControl={false}
         className='h-[50vh] rounded-lg relative z-0'

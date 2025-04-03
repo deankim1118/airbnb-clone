@@ -11,8 +11,7 @@ import UserInfo from '@/components/properties/userInfo';
 import { Separator } from '@/components/ui/separator';
 import Description from '@/components/properties/booking/Description';
 import Amenities from '@/components/properties/Amenities';
-import dynamic from 'next/dynamic';
-import { Skeleton } from '@/components/ui/skeleton';
+import SubmitReview from '@/components/reviews/SubmitReview';
 
 export default async function PropertyDetailsPage({
   params,
@@ -25,13 +24,7 @@ export default async function PropertyDetailsPage({
   const details = { baths, bedrooms, beds, guests };
   const firstName = property.profile.firstName;
   const profileImage = property.profile.profileImage;
-  const DynamicMap = dynamic(
-    () => import('@/components/properties/PropertyMap'),
-    {
-      ssr: false,
-      loading: () => <Skeleton className='h-[400px] w-full' />,
-    },
-  );
+
   return (
     <section>
       <BreadCrumbs name={property.name} />
@@ -54,12 +47,12 @@ export default async function PropertyDetailsPage({
           <Separator />
           <Description description={property.description} />
           <Amenities amenities={property.amenities} />
-          <DynamicMap countryCode={property.country} />;
         </div>
         <div className='col-span-4 flex flex-col items-center'>
           <BookingCalendar />
         </div>
       </div>
+      <SubmitReview propertyId={property.id} />
     </section>
   );
 }

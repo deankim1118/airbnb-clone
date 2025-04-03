@@ -41,7 +41,7 @@ export const fetchProfile = async () => {
   return profile;
 };
 
-export const renderError = (err: unknown): { message: string } => {
+export const renderError = async (err: unknown) => {
   console.error(err);
   return {
     message: err instanceof Error ? err.message : 'An error occurred',
